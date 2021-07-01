@@ -17,8 +17,10 @@
           </td>
           <td><%= link_to @bookshow.title, book_path(@bookshow) %></td>
           <td><%= @bookshow.body %></td>
+          <% if @bookshow.user == current_user %>
           <td><%= link_to 'Edit', edit_book_path(@bookshow), class: "btn btn-sm btn-success edit_book_#{@bookshow.id}" %></td>
           <td><%= link_to 'Destroy', book_path(@bookshow), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_book_#{@book.id}"%></td>
+          <% end %>
         </tr>
       </table>
     </div>
