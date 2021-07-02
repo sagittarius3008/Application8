@@ -43,7 +43,8 @@
       <div class="comments">
         <p>コメント件数：<%= @bookshow.book_comments.count %></p>
           <% @bookshow.book_comments.each do |book_comment| %>
-        <%= attachment_image_tag(@bookshow.user, :profile_image, :fill, 50, 50, fallback: "no-image-icon.jpg") %>
+        <!--image_tagは書評の投稿者(@bookshow)ではなく、コメントの投稿者にする。引数はbook_comment.user-->
+          <%= attachment_image_tag(book_comment.user, :profile_image, :fill, 50, 50, fallback: "no-image-icon.jpg") %>
           <%= book_comment.user.name %>
           <%= book_comment.created_at.strftime('%Y/%m/%d') %><%= book_comment.comment %>
           <% if book_comment.user == current_user %>
