@@ -1,0 +1,13 @@
+<!--フォロー、フォロー解除のフォームを呼ぶフォーム-->
+
+<!--current_iser?=渡されたユーザーがカレントユーザーであればtrueを返す-->
+<!--unless=falseだったら実行-->
+
+  <!--<div id="follow_form">-->
+    <!--following?はuserモデル内で定義。そのユーザーがフォローしてたらtrueを返す-->
+  <% if current_user.following?(user) %>
+    <%= render 'unfollow', user: user %>
+  <% else %>
+    <%= render 'follow' , user: user %>
+  <% end %>
+  <!--</div>-->

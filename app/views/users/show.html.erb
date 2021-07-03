@@ -7,6 +7,16 @@
       <%= render 'books/form', book: @book %>
     </div>
     <div class='col-md-8 offset-md-1'>
+      <!--フォロー、解除ボタン-->
+      <section class="stats">
+        <%= render 'shared/stats' %>
+      </section>
+      <!--フォローフォーム-->
+      <% if @user != current_user %>
+      <% if logged_in? %>
+        <%= render 'follow_form' ,user: @user %>
+        <% end %>
+      <% end %>
       <h2>Books</h2>
       <%= render 'books/index',books: @books %>
     </div>
