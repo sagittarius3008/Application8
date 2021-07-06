@@ -1,1 +1,2 @@
-$("#book-detail").html("<%= j(render 'book_comments/comment_form', { book_comments: @comment.book.book_comments, user: @user }) %>")
+$("#book-detail").html("<%= j(render 'books/detail', { book: @book } ) %>")
+$("#book-table").html("<%= j(render 'comment_form', { book_comments: @comments } ) %>")

@@ -1,4 +1,4 @@
-$("#book-table").html("<%= j(render 'books/detail', { book: @book }) %>")
-$("#book-detail").html("<%= j(render 'book_comments/comment_form', { book_comments: @comment.book.book_comments }) %>")
+$("#book-detail").html("<%= j(render 'books/detail', { book: @book }) %>")
+$("#book-table").html("<%= j(render 'book_comments/comment_form', { book_comments: @comment.book.book_comments }) %>")
 <!--form_with内のtextareaタグを空欄にする-->
 $("#new_comment").val('')

@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2021_07_02_074728) do
 
   create_table "book_comments", force: :cascade do |t|
-    t.text "comment"
+    t.text "comm
     t.integer "user_id"
     t.integer "book_id"
     t.datetime "created_at", null: false

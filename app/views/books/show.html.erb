@@ -7,17 +7,21 @@
       <%= render 'form', book: @book %>
     </div>
     <div class='col-md-8 offset-md-1'>
-      <!--投稿詳細画面-->
-    <div id = "book-table">
-      <%= render "books/detail", book: @bookshow %>
+        <!--投稿詳細画面-->
+      <div id = "book-detail">
+        <%= render "books/detail", book: @bookshow %>
+      </div>
+      
+      <div>
+        <%= form_with(model:[@bookshow, @book_comment]) do |f| %>
+          <%= f.text_area :comment,id:"new_comment",rows:'6',placeholder: "コメントをここに" %>
+          <%= f.submit "送信する" %>
+        <% end %>
+      </div>
+          <!--<#%= render partial: "book_comments/comment_form", book: @book %>-->
+      <div id="book-table">
+        <%= render "book_comments/comment_form", book_comments: @bookshow.book_comments %>
+      </div>
     </div>
-    
-          <%= form_with(model:[@bookshow, @book_comment]) do |f| %>
-            <%= f.text_area :comment,id:"new_comment",rows:'6',placeholder: "コメントをここに" %>
-            <%= f.submit "送信する" %>
-          <% end %>
-        <!--<#%= render partial: "book_comments/comment_form", book: @book %>-->
-  
-    <div id="book-detail">
-      <%= render "book_comments/comment_form", book_comments: @bookshow.book_comments %>
-    </div>
+  </div>
+</div>

@@ -4,13 +4,16 @@ class BookCommentsController < ApplicationController
     @comment = current_user.book_comments.new(book_comment_params)
     @comment.book_id = @book.id
     @comment.save
-    
     @user = User.find_by(id: @book.user_id)
     # redirect_to book_path(book)
   end
 
   def destroy
     BookComment.find_by(id: params[:id], book_id: params[:book_id]).destroy
+    # 部分テンプレート呼び出す用の変数定義
+    @book = Book.find(params[:book_id])
+    # @user = User.find_by(id: @book.user_id)
+    @comments = @book.book_comments
     # redirect_to book_path(params[:book_id])
   end
 
