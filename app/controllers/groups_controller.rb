@@ -28,10 +28,8 @@ class GroupsController < ApplicationController
   end
   
   def show
+    @book = Book.new
     @group = Group.find(params[:id])
-    # UserGroupテーブルからログインユーザーと、詳細を表示しているグループの組み合わせを探します。
-    # 組み合わせがなければnilを返します。
-    @groupUser = GroupUser.find_by(user_id: current_user.id, group_id: params[:id])
   end
   
   def destroy
