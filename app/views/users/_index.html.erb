@@ -5,7 +5,9 @@
     <tr>
       <th>image</th>
       <th>name</th>
-      <th colspan="3"></th>
+      <th>follow_count</th>
+      <th>follower_count</th>
+      <th colspan="2"></th>
     </tr>
   </thead>
   <tbody>
@@ -16,28 +18,11 @@
         <td><%= "フォロー数：#{user.following.count}" %></td>
         <td><%= "フォロワー数：#{user.followers.count}" %></td>
         <td>
-          <!--自分にはfollowボタン表示しない-->
           <!--フォローしてたらunfollow、してなかったらfollowボタンを表示-->
           <% if user != current_user %>
-                                <!--<%# if current_user.following?(user) %>-->
-                                <!--  <%#= form_with(model: current_user.active_relationships.find_by(followed_id: user.id),-->
-                                <!--              html: { method: :delete }, local: true) do |f| %>-->
-                                <!--    <%#= f.submit "Unfollow", class: "btn　btn-danger" %>-->
-                                <!--  <%# end %>-->
-                      <!--<#%= render 'unfollow' %>-->
-                    <%# else %>
-                                <!--<%#= form_with(model: current_user.active_relationships.build, local: true) do |f| %>-->
-                                <!--  <div>-->
-                                <!--    <%#= hidden_field_tag :followed_id, user.id %>-->
-                                <!--  </div>-->
-                                <!--  <%#= f.submit "Follow", class: "btn btn-primary" %>-->
-                                <!--<%# end %>-->
-                      <!--<#%= render 'follow' %>-->
-                    <%# end %>
             <%= render 'follow_form' ,user: user %>
           <% end %>
         </td>
-        
         <td><%= link_to 'Show', user_path(user), class: "user_#{user.id}" %></td>
       </tr>
     <% end %>

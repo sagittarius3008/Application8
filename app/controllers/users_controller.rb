@@ -34,7 +34,6 @@ class UsersController < ApplicationController
     end
   end
   
-  # kaminariが必要？
   def following
     @title = "Following"
     @user  = User.find(params[:id])
