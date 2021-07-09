@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     end
   end
   resources :groups do
-    resources :group_users, only: :create
+    resources :group_users, only: [:create, :destroy]
   end
   resources :books do
     resource :favorites, only: [:create, :destroy]
