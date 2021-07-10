@@ -7,10 +7,12 @@ class GroupUsersController < ApplicationController
   end
   
   def destroy
-    @group = Group.find(params[:group_id])
-    # user = current_user
+    # @group = Group.find(params[:group_id])
+    user = current_user
+    @group_users.find_by(user_id: user_id)
     # "-"が非破壊的メソッドだから反映されない！！！！
-    @group = @group.users - [current_user]
+    # @group.users.find_by(user_id: user.id).destroy
+    # @group.users - [current_user]
     # @group.save
     redirect_to groups_path, notice: "ユーザーを削除しました。"
   end
