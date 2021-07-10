@@ -18,6 +18,6 @@ Rails.application.routes.draw do
   get 'home/about' => 'homes#about'
   get 'books/search' => 'searches#search'
   get 'information/confirm'=> 'informations#confirm'
-  # get 'informations/new' =>'informations#new'
+  # get 'informations/send_mail' =>'informations#send_mail'
   
 end

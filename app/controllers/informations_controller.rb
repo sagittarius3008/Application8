@@ -4,16 +4,13 @@ class InformationsController < ApplicationController
   end
   
   def create
+    InformationMailer.send_mail_users
+    redirect_to information_confirm_path
   end
   
   def confirm
   end
-  
-  def send_mail
-    SampleMailer.send_mail_users
-    redirect_to information_confirm_path
-  end 
-  
+
   private
 
   def information_params
