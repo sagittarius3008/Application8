@@ -1,5 +1,15 @@
 # README
 debug Bookers2
+
+application
+
+follow/follower
+search
+like/comment
+ajax
+group
+(mailer)
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
